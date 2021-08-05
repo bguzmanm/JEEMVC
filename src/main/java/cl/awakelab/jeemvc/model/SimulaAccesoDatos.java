@@ -11,15 +11,15 @@ public class SimulaAccesoDatos {
 
         List<Participante> lista = new ArrayList<Participante>();
 
-        lista.add(new Participante("1-1", "Eliseo", "Ávila", 39, "eliseo@gmail.com", true));
-        lista.add(new Participante("2-2", "Gabriel", "Recabarren", 39, "gabriel@gmail.com", true));
+        lista.add(new Participante("1-1", "Eliseo", "Ávila", 39, "eliseo@gmail.com", true, "/view/img/eliseo.png"));
+        lista.add(new Participante("2-2", "Gabriel", "Recabarren", 39, "gabriel@gmail.com", true, "/view/img/gabriel.png"));
         lista.add(new Participante("3-3", "Alejandra", "Vejar", 39, "alejandra@gmail.com", true));
         lista.add(new Participante("4-4", "Juanito", "Monsalve", 39, "juanito@gmail.com", false));
-        lista.add(new Participante("5-5", "Felipe", "Kessi", 39, "felipe@gmail.com", false));
+        lista.add(new Participante("5-5", "Felipe", "Kessi", 39, "felipe@gmail.com", true));
         lista.add(new Participante("6-6", "Ronald", "Figueroa", 39, "ronald@gmail.com", true));
         lista.add(new Participante("7-7", "Cristian", "Urra", 39, "cristian@gmail.com", true));
         lista.add(new Participante("8-8", "Natalia", "Aldana", 39, "naty@gmail.com", true));
-        lista.add(new Participante("9-9", "María", "EstomagoCongelado", 39, "maria@gmail.com", false));
+        lista.add(new Participante("9-9", "Daniel", "Navarrete", 39, "daniel@gmail.com", true, "/view/img/daniel.png"));
 
         c.setParticipantes(lista);
 

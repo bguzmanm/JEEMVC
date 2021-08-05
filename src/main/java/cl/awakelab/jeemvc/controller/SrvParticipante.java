@@ -18,8 +18,17 @@ public class SrvParticipante extends HttpServlet {
         //leo un rut que viene como parámetro en el request.
         String rut = request.getParameter("rut");
         Participante p = sac.buscarParticipante(rut);
+
+        String resultado = request.getParameter("result");
         request.setAttribute("p", p);
-        getServletContext().getRequestDispatcher("/view/participante.jsp").forward(request, response);
+        if (resultado.equals("ver")){
+            getServletContext().getRequestDispatcher("/view/participante.jsp").forward(request, response);
+        } else {
+            getServletContext().getRequestDispatcher("/view/editarParticipante.jsp").forward(request, response);
+        }
+
+
+
 
     }
 
