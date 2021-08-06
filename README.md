@@ -19,3 +19,22 @@ Toma nota de los comentarios que te guiarán para comprender la implementación.
 
 ## Autor
 - [Brian Guzmán](https://github.com/bguzmanm)
+
+## Script SQL
+```sql
+CREATE TABLE PARTICIPANTES 
+(
+  RUT VARCHAR2(20 CHAR) NOT NULL 
+, NOMBRE VARCHAR2(100 CHAR) 
+, APELLIDO VARCHAR2(100 CHAR) 
+, EDAD NUMBER 
+, EMAIL VARCHAR2(100 CHAR) 
+, APROBADO NUMBER(1, 0) DEFAULT 0 
+, URLIMG VARCHAR2(100 CHAR) 
+, CONSTRAINT PARTICIPANTES_PK PRIMARY KEY 
+  (
+    RUT 
+  )
+  ENABLE
+);
+```
