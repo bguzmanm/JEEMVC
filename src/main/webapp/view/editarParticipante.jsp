@@ -20,43 +20,46 @@
         <h1>Editar Estudiante</h1>
         <jsp:include page="menu.jsp"/>
     </header>
-    <form action="#" method="post">
+    <form action="srvParticipante" method="post">
         <div class="mb-3">
             <label for="rut" class="form-label">Rut</label>
-            <input type="text" class="form-control" id="rut" value="${p.getRut()}">
+            <input type="text" class="form-control" id="rut" name="rut" value="${p.getRut()}">
         </div>
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
-            <input type="text" class="form-control" id="nombre" value="${p.getNombre()}">
+            <input type="text" class="form-control" id="nombre" name="nombre" value="${p.getNombre()}">
         </div>
         <div class="mb-3">
             <label for="apellido" class="form-label">Apellido</label>
-            <input type="text" class="form-control" id="apellido" value="${p.getApellido()}">
+            <input type="text" class="form-control" id="apellido" name="apellido" value="${p.getApellido()}">
         </div>
         <div class="mb-3">
             <label for="edad" class="form-label">Edad</label>
-            <input type="number" class="form-control" id="edad" value="${p.getEdad()}">
+            <input type="number" class="form-control" id="edad" name="edad" value="${p.getEdad()}">
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" value="${p.getEmail()}">
+            <input type="email" class="form-control" id="email" name="email" value="${p.getEmail()}">
         </div>
         <div class="mb-3">
             <label for="aprobado" class="form-label">Aprobado</label>
             <c:if test="${p.isAprobado()}">
-                <input type="checkbox" class="form-check-input mt-0" id="aprobado" checked>
+                <input type="checkbox" class="form-check-input mt-0" id="aprobado" name="aprobado" checked value="true">
             </c:if>
             <c:if test="${!p.isAprobado()}">
-                <input type="checkbox" class="form-check-input mt-0" id="aprobado">
+                <input type="checkbox" class="form-check-input mt-0" id="aprobado" name="aprobado" value="false">
             </c:if>
         </div>
+        <div class="mb-3">
+            <label for="urlimg" class="form-label">URL de Imagen</label>
+            <input type="text" class="form-control" id="urlimg" name="urlimg" value="${p.getUrlImg()}">
+        </div>
+
         <button type="submit" class="btn btn-primary">Enviar</button>
         <button type="reset" class="btn btn-secondary">Reset</button>
 
     </form>
-    <jsp:include page="footer.jsp"/>
 </div>
-
-
+<jsp:include page="footer.jsp"/>
 </body>
 </html>

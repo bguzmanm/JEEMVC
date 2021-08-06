@@ -15,10 +15,9 @@ public class Algoritmo {
                 cantidadAprobados++;
             }
         }
-        System.out.println("Cantidad Estudiantes: " + c.getParticipantes().size());
-        System.out.println("Cantidad Aprobados: " + cantidadAprobados);
+
         double exito = (double)cantidadAprobados / (double)c.getParticipantes().size();
-        System.out.println("% de Exito: " + exito);
+
         return (exito);
     }
 }

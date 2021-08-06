@@ -9,11 +9,13 @@
     <link rel="stylesheet" href="view/css/estilo.css">
 </head>
 <body>
+
 <div class="container">
     <h1>Administración de Cursos</h1>
     <jsp:include page="view/menu.jsp"/>
     <p>Lorem imsolum chuchilleo en la guata</p>
-    <jsp:include page="view/footer.jsp"/>
 </div>
+
+<jsp:include page="view/footer.jsp"/>
 </body>
 </html>

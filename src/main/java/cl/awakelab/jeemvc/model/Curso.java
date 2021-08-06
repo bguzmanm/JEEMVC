@@ -12,6 +12,7 @@ public class Curso {
 
     public Curso(String codigo, List<Participante> participantes) {
         this.codigo = codigo;
+
         this.participantes = participantes;
     }
 

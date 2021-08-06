@@ -27,7 +27,8 @@
     <p>Email: <c:out value="${p.getEmail()}"/> </p>
     <p>Aprobado: <c:out value="${p.isAprobado()}"/> </p>
     <img src="${pageContext.request.contextPath}${p.getUrlImg()}" class="img-thumbnail" alt="${p.getNombre()} ${p.getApellido()}"/>
-    <jsp:include page="footer.jsp"/>
+
 </div>
+<jsp:include page="footer.jsp"/>
 </body>
 </html>
