@@ -8,7 +8,14 @@ Toma nota de los comentarios que te guiarán para comprender la implementación.
 - Agregamos editarparticipante.jsp
 - Hacemos include de menu.jsp y footer.jsp
 - Incluimos elementos de formateo de datos
-- Incluimos css, imagenes. 
+- Incluimos css, imagenes. ç
+
+## 6 de Agosto
+- Agregamos conectividad a BD.
+- Uso de patrón Singleton
+- Uso de patrón DAO
+- Implementaeción incompleta de CRUD
+- Uso de JDBC y OJDBC
 
 ## Autor
 - [Brian Guzmán](https://github.com/bguzmanm)
