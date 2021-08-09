@@ -16,7 +16,9 @@
         <li class="nav-item">
           <a class="nav-link" href="srvCurso">Ver Curso</a>
         </li>
-
+        <li class="nav-item">
+          <a class="nav-link" href="srvParticipante?result=crear">Nuevo Participante</a>
+        </li>
       </ul>
     </div>
   </div>

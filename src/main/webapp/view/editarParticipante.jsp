@@ -9,7 +9,12 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
+    <c:if test="${accion=='editar'}">
     <title>Editar Participante</title>
+    </c:if>
+    <c:if test="${accion=='crear'}">
+        <title>Crear Estudiante</title>
+    </c:if>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <link rel="stylesheet" href="view/css/estilo.css">
@@ -17,13 +22,23 @@
 <body>
 <div class="container">
     <header>
+        <c:if test="${accion=='editar'}">
         <h1>Editar Estudiante</h1>
-        <jsp:include page="menu.jsp"/>
+        </c:if>
+        <c:if test="${accion=='crear'}">
+            <h1>Crear Estudiante</h1>
+        </c:if>
+            <jsp:include page="menu.jsp"/>
     </header>
     <form action="srvParticipante" method="post">
         <div class="mb-3">
             <label for="rut" class="form-label">Rut</label>
-            <input type="text" class="form-control" id="rut" name="rut" value="${p.getRut()}">
+            <c:if test="${accion=='editar'}">
+                <input type="text" class="form-control" id="rut" name="rut" readonly value="${p.getRut()}">
+            </c:if>
+            <c:if test="${accion=='crear'}">
+                <input type="text" class="form-control" id="rut" name="rut" value="${p.getRut()}">
+            </c:if>
         </div>
         <div class="mb-3">
             <label for="nombre" class="form-label">Nombre</label>
@@ -54,6 +69,7 @@
             <label for="urlimg" class="form-label">URL de Imagen</label>
             <input type="text" class="form-control" id="urlimg" name="urlimg" value="${p.getUrlImg()}">
         </div>
+        <input type="hidden" value="${accion}" name="accion">
 
         <button type="submit" class="btn btn-primary">Enviar</button>
         <button type="reset" class="btn btn-secondary">Reset</button>

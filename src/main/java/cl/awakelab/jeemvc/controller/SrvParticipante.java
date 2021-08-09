@@ -14,29 +14,60 @@ public class SrvParticipante extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-        //SimulaAccesoDatos sac = new SimulaAccesoDatos();
-
-        //leo un rut que viene como parámetro en el request.
-        String rut = request.getParameter("rut");
-        //Participante p = sac.buscarParticipante(rut);
-
-        ParticipanteDAO pDAO = new ParticipanteDAO();
-        Participante p = pDAO.readOne(rut);
-
+        //obtengo parámetro que me indica que resultado se espera (ver, editar, crear)
         String resultado = request.getParameter("result");
-        request.setAttribute("p", p);
-        if (resultado.equals("ver")){
-            getServletContext().getRequestDispatcher("/view/participante.jsp").forward(request, response);
-        } else {
-            getServletContext().getRequestDispatcher("/view/editarParticipante.jsp").forward(request, response);
+
+        if (resultado.equals("ver") || resultado.equals("edit")){
+            //leo un rut que viene como parámetro en el request.
+            String rut = request.getParameter("rut");
+            //Participante p = sac.buscarParticipante(rut);
+
+            ParticipanteDAO pDAO = new ParticipanteDAO();
+            Participante p = pDAO.readOne(rut);
+
+            request.setAttribute("p", p);
         }
+
+        switch (resultado){
+            case "edit":
+                request.setAttribute("accion", "editar");
+                getServletContext().getRequestDispatcher("/view/editarParticipante.jsp").forward(request, response);
+                break;
+            case "crear":
+                request.setAttribute("accion", "crear");
+                getServletContext().getRequestDispatcher("/view/editarParticipante.jsp").forward(request, response);
+                break;
+            case "del":
+                String rut = request.getParameter("rut");
+                ParticipanteDAO pDAO = new ParticipanteDAO();
+                pDAO.borrarParticipante(rut);
+                getServletContext().getRequestDispatcher("/srvCurso").forward(request, response);
+
+                break;
+            default:
+                getServletContext().getRequestDispatcher("/view/participante.jsp").forward(request, response);
+                break;
+
+        }
+
+      /*  if (resultado.equals("ver")){
+
+        } else {
+            if (resultado.equals("edit")) {
+                request.setAttribute("accion", "editar");
+                getServletContext().getRequestDispatcher("/view/editarParticipante.jsp").forward(request, response);
+            } else {
+                request.setAttribute("accion", "crear");
+                getServletContext().getRequestDispatcher("/view/editarParticipante.jsp").forward(request, response);
+            }
+
+        }*/
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
         Participante p = new Participante();
-
 
         p.setRut(request.getParameter("rut"));
         p.setNombre(request.getParameter("nombre"));
@@ -52,11 +83,15 @@ public class SrvParticipante extends HttpServlet {
 
         p.setUrlImg(request.getParameter("urlimg"));
 
-
-        System.out.println(p.toString());
+        String accion = request.getParameter("accion");
 
         ParticipanteDAO pDAO = new ParticipanteDAO();
-        pDAO.actualizarParticipante(p);
+
+        if (accion.equals("editar")) {
+            pDAO.actualizarParticipante(p);
+        } else {
+            pDAO.crearParticipante(p);
+        }
 
         getServletContext().getRequestDispatcher("/srvCurso").forward(request, response);
 

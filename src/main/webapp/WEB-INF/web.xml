@@ -4,5 +4,21 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
 
+    <servlet>
+        <servlet-name>srvCurso</servlet-name>
+        <servlet-class>cl.awakelab.jeemvc.controller.SrvCurso</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>srvParticipante</servlet-name>
+        <servlet-class>cl.awakelab.jeemvc.controller.SrvParticipante</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>srvCurso</servlet-name>
+        <url-pattern>/srvCurso</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>srvParticipante</servlet-name>
+        <url-pattern>/srvParticipante/*</url-pattern>
+    </servlet-mapping>
 
 </web-app>

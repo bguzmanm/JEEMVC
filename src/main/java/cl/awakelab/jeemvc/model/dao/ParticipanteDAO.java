@@ -15,6 +15,21 @@ public class ParticipanteDAO implements IParticipanteDAO{
     @Override
     public void crearParticipante(Participante p) {
 
+        int aprueba = p.isAprobado() ? 1 : 0;
+        String sql = "insert into participantes (rut, nombre, apellido, edad, email, aprobado, urlimg) " +
+                "values ('" + p.getRut()+ "', '" + p.getNombre() +"', '" + p.getApellido() + "', " + p.getEdad() +
+                ", '" + p.getEmail() +"', " + aprueba + ", '" + p.getUrlImg() + "')";
+        try{
+            Connection cn = Conexion.getInstance();
+            Statement s = cn.createStatement();
+            cn.setAutoCommit(true);
+
+            s.execute(sql);
+            s.close();
+        } catch (SQLException e){
+            System.out.println("ERROR AL HACER INSERT");
+            e.printStackTrace();
+        }
     }
 
     @Override
@@ -72,7 +87,6 @@ public class ParticipanteDAO implements IParticipanteDAO{
     public void actualizarParticipante(Participante p) {
 
         System.out.println(p.getNombre() + " está aprobado? :" + p.isAprobado());
-
         int aprueba = p.isAprobado() ? 1 : 0;
 
         String sql = "update  participantes set nombre = '" + p.getNombre() +
@@ -99,11 +113,23 @@ public class ParticipanteDAO implements IParticipanteDAO{
 
     @Override
     public void borrarParticipante(Participante p) {
-
+        borrarParticipante(p.getRut());
     }
 
     @Override
     public void borrarParticipante(String rut) {
+        String sql = "delete from participantes where rut = '" + rut + "'";
+        try{
 
+            Connection cn = Conexion.getInstance();
+            Statement s = cn.createStatement();
+            cn.setAutoCommit(true);
+            s.execute(sql);
+            s.close();
+
+        } catch (Exception e){
+            System.out.println("ERROR AL BORRAR PARTICIPANTE");
+            e.printStackTrace();
+        }
     }
 }

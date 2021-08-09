@@ -54,11 +54,15 @@
                     <td><c:out value="${p.getEmail()}"></c:out></td>
                     <td><c:out value="${p.isAprobado()}"></c:out></td>
                     <td>
-                        <c:url var="accion" value="/srvParticipante">
+                        <c:url var="editar" value="/srvParticipante">
                             <c:param name="rut" value="${p.getRut()}"/>
                             <c:param name="result" value="edit"/>
                         </c:url>
-                        <a href="${accion}" class="btn btn-primary">Editar</a>&nbsp;<a class="btn btn-danger">Borrar</a></td>
+                        <c:url var="eliminar" value="/srvParticipante">
+                            <c:param name="rut" value="${p.getRut()}"/>
+                            <c:param name="result" value="del"/>
+                        </c:url>
+                        <a href="${editar}" class="btn btn-primary">Editar</a>&nbsp;<a href="${eliminar}" class="btn btn-danger">Borrar</a></td>
                 </tr>
             </c:forEach>
             </tbody>
