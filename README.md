@@ -17,6 +17,11 @@ Toma nota de los comentarios que te guiarán para comprender la implementación.
 - Implementaeción incompleta de CRUD
 - Uso de JDBC y OJDBC
 
+## 9 de Agosto
+- Completamos CRUD de Participantes
+- Incluimos funcionalidad para Crear y Eliminar Participantes
+- Inclumos web.xml con información de despliegue
+
 ## Autor
 - [Brian Guzmán](https://github.com/bguzmanm)
 
